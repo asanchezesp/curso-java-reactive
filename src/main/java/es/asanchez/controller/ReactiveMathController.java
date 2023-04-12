@@ -24,7 +24,7 @@ public class ReactiveMathController {
     public Mono<Response> findSquare(@PathVariable int input) throws InputValidationException {
         return Mono.just(input)
                 .handle(((integer, sink) -> {
-                    if (integer >= 10 && integer <= 20)
+                    if (integer >= 5 && integer <= 20)
                         sink.next(integer);
                     else sink.error(new InputValidationException(integer));
                 }))
